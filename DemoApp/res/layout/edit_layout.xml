@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:orientation="vertical">
+    	
+        <LinearLayout
+	        android:layout_width="match_parent"
+	    	android:layout_height="fill_parent"
+	    	android:orientation="horizontal"
+	    	android:layout_weight="8">
+            
+            <Button
+                android:id="@+id/btn_addImg"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="图片" />
+
+            <Button
+                android:id="@+id/btn_photo"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="拍照" />
+            <Button
+                android:id="@+id/btn_addVideo"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="视频" />
+    	</LinearLayout>
+    	<EditText 
+    	    android:gravity="top"
+    	    android:id="@+id/et_edit"
+    	    android:layout_width="match_parent"
+	    	android:layout_height="fill_parent"
+	    	android:orientation="horizontal"
+	    	android:maxLength="140"
+	    	android:layout_weight="4"/>
+    	<TextView 
+    	    android:id="@+id/tv_picNum"
+    	    android:layout_width="match_parent"
+	    	android:layout_height="fill_parent"
+	    	android:layout_weight="9"
+	    	android:text="还可以插入3张图片\n一共可以输入140字符"/>
+    	<LinearLayout
+	        android:layout_width="match_parent"
+	    	android:layout_height="fill_parent"
+	    	android:orientation="horizontal"
+	    	android:layout_weight="9">
+            
+            <Button
+                android:id="@+id/btn_editFinish"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="完成" />
+
+            <Button
+                android:id="@+id/btn_backToDefault"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="返回" />
+ 
+    	</LinearLayout>
+        
+        
+        
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:orientation="vertical">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+    		android:layout_height="fill_parent"
+    		android:layout_weight="5"
+    		android:orientation="horizontal">
+    		<Button
+                android:id="@+id/btn_testt"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="测试up" />
+
+            <Button
+                android:id="@+id/btn_testq"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="测试" />
+        </LinearLayout>
+        
+        
+        
+        
+        
+        
+        
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+    		android:layout_height="fill_parent"
+    		android:layout_weight="1"
+    		android:orientation="vertical"
+    		android:id="@+id/ll_note">
+            
+            <ScrollView
+                android:id="@+id/lv_note"
+                android:layout_height="fill_parent"
+                android:layout_width="match_parent"
+                android:layout_weight="1">
+                <LinearLayout 
+                    android:id="@+id/ll_content"
+                    android:layout_width="match_parent"
+    				android:layout_height="match_parent"
+    				android:orientation="vertical">
+                    
+                </LinearLayout>
+            </ScrollView>
+            <LinearLayout
+            android:layout_width="match_parent"
+    		android:layout_height="fill_parent"
+    		android:layout_weight="9"
+    		android:orientation="horizontal">
+    		<Button
+                android:id="@+id/btn_write"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="写日记" />
+
+            <Button
+                android:id="@+id/btn_test1"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="测试2" />
+            <Button
+                android:id="@+id/btn_test2"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="测试3" />
+
+            <Button
+                android:id="@+id/btn_test3"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="测试4" />
+        </LinearLayout>
+    		
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+    		android:layout_height="fill_parent"
+    		android:layout_weight="1"
+    		android:orientation="vertical"
+    		android:id="@+id/ll_send">
+  			<CheckBox 
+  			    android:layout_width="match_parent"
+    			android:layout_height="fill_parent"/>
+    		
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+    		android:layout_height="fill_parent"
+    		android:layout_weight="1"
+    		android:orientation="vertical"
+    		android:id="@+id/ll_empty">
+            
+        </LinearLayout>
+        
+    </LinearLayout>
+
+</RelativeLayout>
