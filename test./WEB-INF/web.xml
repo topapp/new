@@ -44,15 +44,6 @@
 <url-pattern>/Upload</url-pattern> 
 </servlet-mapping>
 
-<servlet> 
-<servlet-name>UploadDiary</servlet-name> 
-<servlet-class>UploadDiary</servlet-class> 
-</servlet> 
-<servlet-mapping>
-<servlet-name>UploadDiary</servlet-name> 
-<url-pattern>/UploadDiary</url-pattern> 
-</servlet-mapping>
-
 <welcome-file-list> 
 <welcome-file>fastlogin</welcome-file> 
  </welcome-file-list>
