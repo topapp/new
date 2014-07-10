@@ -36,12 +36,12 @@
 </servlet-mapping>
 
 <servlet> 
-<servlet-name>Upload</servlet-name> 
-<servlet-class>Upload</servlet-class> 
+<servlet-name>DownloadDiary</servlet-name> 
+<servlet-class>DownloadDiary</servlet-class> 
 </servlet> 
 <servlet-mapping>
-<servlet-name>Upload</servlet-name> 
-<url-pattern>/Upload</url-pattern> 
+<servlet-name>DownloadDiary</servlet-name> 
+<url-pattern>/DownloadDiary</url-pattern> 
 </servlet-mapping>
 
 <servlet> 

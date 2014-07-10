@@ -1,7 +1,7 @@
 import java.io.File;  
 import java.io.IOException;  
-import java.util.Iterator;  
-import java.util.List;  
+import java.util.*;  
+import java.text.*;
   
 import javax.servlet.ServletException;  
 import javax.servlet.http.HttpServlet; 
@@ -29,12 +29,16 @@ public class UploadDiary extends HttpServlet {
         request.setCharacterEncoding("utf-8");   
         String address ="d:\\apache-tomcat-7.0.47\\webapps\\test\\clients\\";
         boolean isMultipart = ServletFileUpload.isMultipartContent(request);
-        String id;
-        String diary;
-        int picturenum;
+        String id=null;
+        String diary=null;
+        int picturenum=0;
+        String [] pic=new String [] {null,null,null};
         java.util.Date  date=new java.util.Date();                                  //current time
-        java.sql.Date  time=new java.sql.Date(date.getTime());
-
+        Timestamp time=new Timestamp(date.getTime());
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String strTime = dateFormat.format(date);
+        strTime=strTime.replace(" ","_");
+        strTime=strTime.replace(":","_");
 
         Connection conn=null;                                                       //connect database
         PreparedStatement pStmt=null;
@@ -51,18 +55,22 @@ public class UploadDiary extends HttpServlet {
         System.out.println(e.toString());
         }
 
-
+        id=request.getParameter("id");
+        diary=request.getParameter("diary");
 
         if(isMultipart){  
             DiskFileItemFactory factory = new DiskFileItemFactory();  
             ServletFileUpload upload = new ServletFileUpload(factory);  
             try {  
                 List<FileItem> items = upload.parseRequest(request);  
-                   
+                int i=1;
                 for(FileItem item : items){                                   //receive the photos or file in the diary
                     if(!item.isFormField()){ 
-                        String name =item.getName();  
-                        item.write(new File(address + name.substring(name.lastIndexOf("/")+1,name.length())));  
+                        String name =item.getName();
+                        String fileFormat=name.substring(name.lastIndexOf(".")+1,name.length());
+                        item.write(new File(address+id+"_"+strTime+"_"+i+"."+fileFormat));
+                        pic[i-1]=id+"_"+strTime+"_"+i+"."+fileFormat;
+                        i++;
                     }
                     else
                     {                                                        //key=value  
@@ -86,13 +94,17 @@ public class UploadDiary extends HttpServlet {
             } catch (Exception e) {  
                 e.printStackTrace();  
             }  
-        }
+        }     
+
         try{
-            pStmt=conn.prepareStatement("insert into diary (id,diary,picturenum,time) values(?,?,?,?)"); 
+            pStmt=conn.prepareStatement("insert into diary (id,diary,picturenum,time,pic1,pic2,pic3) values(?,?,?,?,?,?,?)"); 
             pStmt.setString(1,id);
             pStmt.setString(2,diary);
             pStmt.setInt(3,picturenum);
-            pStmt.setDateTime(4,time);
+            pStmt.setTimestamp(4,time);
+            pStmt.setString(5,pic[0]);
+            pStmt.setString(6,pic[1]);
+            pStmt.setString(7,pic[2]);
             int rtn=pStmt.executeUpdate();
         }
         catch(SQLException e){
